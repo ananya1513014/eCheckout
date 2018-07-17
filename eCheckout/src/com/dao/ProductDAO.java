@@ -29,8 +29,8 @@ public class ProductDAO {
 		 ps.setDouble(6, product.getWidth());
 		 ps.setString(7, product.getColour());
 		 ps.setString(8, product.getDescription());
-		 ps.setDouble(10, product.getPrice());
 		 ps.setBlob(9, product.getImage());
+		 ps.setDouble(10, product.getPrice());
 		 result = ps.executeUpdate();
 		 return result;
 	}
@@ -38,7 +38,7 @@ public class ProductDAO {
 	{
 		 Class.forName("com.mysql.jdbc.Driver");
 		 Connection con =DriverManager.getConnection("jdbc:mysql://localhost/eCheckout", "root", "tiger");
-		String sql = "SELECT * FROM eCheckout.product";
+		String sql = "SELECT productId, productName, material, collection, length, width, colour, description, image, price FROM eCheckout.product";
 		List<ProductBO> list= new ArrayList<>(); 
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(sql);
@@ -51,8 +51,8 @@ public class ProductDAO {
 			double width = rs.getDouble(6);
 			String colour = rs.getString(7);
 			String description = rs.getString(8);
-			double price = rs.getDouble(9);
-			InputStream image = rs.getBinaryStream(10);
+			double price = rs.getDouble(10);
+			InputStream image = rs.getBinaryStream(9);
 			
 			ProductBO product = new ProductBO(productId, productName, material, collection, length, width, colour, description, price, image);
 			list.add(product);
@@ -63,7 +63,7 @@ public class ProductDAO {
 	{
 		 Class.forName("com.mysql.jdbc.Driver");
 		 Connection con =DriverManager.getConnection("jdbc:mysql://localhost/eCheckout", "root", "tiger");
-		String sql = "SELECT * FROM eCheckout.product";
+		String sql = "SELECT productId, productName, material, collection, length, width, colour, description, image, price FROM eCheckout.product";
 		List<ProductBO> list= new ArrayList<>(); 
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(sql);
@@ -77,8 +77,8 @@ public class ProductDAO {
 			double width = rs.getDouble(6);
 			String colour = rs.getString(7);
 			String description = rs.getString(8);
-			double price = rs.getDouble(9);
-			InputStream image = rs.getBinaryStream(10);
+			double price = rs.getDouble(10);
+			InputStream image = rs.getBinaryStream(9);
 			
 			ProductBO product = new ProductBO(productId, productName, material, collection, length, width, colour, description, price, image);
 			list.add(product);
@@ -89,13 +89,13 @@ public class ProductDAO {
 	{
 		 Class.forName("com.mysql.jdbc.Driver");
 		 Connection con =DriverManager.getConnection("jdbc:mysql://localhost/eCheckout", "root", "tiger");
-		String sql = "SELECT * FROM eCheckout.product";
+		String sql = "SELECT productId, productName, material, collection, length, width, colour, description, image, price FROM eCheckout.product";
 		List<ProductBO> list= new ArrayList<>(); 
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(sql);
 		while(rs.next()) {
 			String productId = rs.getString(1);
-			if(productId.charAt(0)!='C') continue;
+			if(productId.charAt(0)!='C') {continue;}
 			String productName = rs.getString(2);
 			String material = rs.getString(3);
 			String collection = rs.getString(4);
@@ -103,8 +103,8 @@ public class ProductDAO {
 			double width = rs.getDouble(6);
 			String colour = rs.getString(7);
 			String description = rs.getString(8);
-			double price = rs.getDouble(9);
-			InputStream image = rs.getBinaryStream(10);
+			InputStream image = rs.getBinaryStream(9);
+			double price = rs.getDouble(10);
 			
 			ProductBO product = new ProductBO(productId, productName, material, collection, length, width, colour, description, price, image);
 			list.add(product);

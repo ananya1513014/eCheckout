@@ -14,7 +14,7 @@ public class Test {
 		File file = new File("/home/unparallel_ag/eCheckoutImages/image1");
 		InputStream in = new FileInputStream(file);
 
-		String productId = "ABC778";
+		String productId = "CBC778";
 		String productName = "Carpet1";
 		String material = "RandMat";
 		String collection = "New";

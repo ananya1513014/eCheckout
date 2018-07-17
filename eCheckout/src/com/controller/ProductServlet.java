@@ -28,55 +28,64 @@ public class ProductServlet extends HttpServlet {
     	String command = request.getParameter("command");
     	System.out.println(command);
     	
-    	switch(command) {
-    			case "getallprod":
-    				System.out.println("get all products....");
-    		    		break;
-    			case "getcarpet":
-    				System.out.println("get all Carpets....");
-    		    		break;
-    			case "getshawl":
-    				System.out.println("get all shawls....");
-    		    		break;
-    	}
-    	/*
-    	List<ProductBO> list;
     	response.setContentType("application/json");
     	PrintWriter out = response.getWriter();    	
 		Gson gson = new Gson();
     	
-    	try {
-			list = ProductDAO.viewAllProducts();
-	    	for(ProductBO product :list)
-	    	{
-	    	   String jsonStr = gson.toJson(product);
-	           out.println(jsonStr);
-	       }
-    	} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
-       out.close();*/
+    	switch(command) {
+    			case "getallprod":
+    		    	try {
+    		    		List<ProductBO> list = ProductDAO.viewAllProducts();
+    			    	for(ProductBO product :list)
+    			    	{
+    			    	   String jsonStr = gson.toJson(product);
+    			           out.println(jsonStr);
+    			       }
+    		    	} catch (ClassNotFoundException e) {
+    					// TODO Auto-generated catch block
+    					e.printStackTrace();
+    				} catch (SQLException e) {
+    					// TODO Auto-generated catch block
+    					e.printStackTrace();
+    				}
+    		    		break;
+    			case "getcarpet":
+    		    	try {
+    		    		List<ProductBO> list = ProductDAO.viewAllCarpets();
+    			    	for(ProductBO product :list)
+    			    	{
+    			    	   String jsonStr = gson.toJson(product);
+    			           out.println("Carpet");
+    			           out.println(jsonStr);
+    			       }
+    		    	} catch (ClassNotFoundException e) {
+    					// TODO Auto-generated catch block
+    					e.printStackTrace();
+    				} catch (SQLException e) {
+    					// TODO Auto-generated catch block
+    					e.printStackTrace();
+    				}
+    		    		break;
+    			case "getshawl":
+    		    	try {
+    		    		List<ProductBO> list = ProductDAO.viewAllShawls();
+    			    	for(ProductBO product :list)
+    			    	{
+    			    	   String jsonStr = gson.toJson(product);
+    			           out.println(jsonStr);
+    			       }
+    		    	} catch (ClassNotFoundException e) {
+    					// TODO Auto-generated catch block
+    					e.printStackTrace();
+    				} catch (SQLException e) {
+    					// TODO Auto-generated catch block
+    					e.printStackTrace();
+    				}
+    		    		break;
+    	}
      }
     
     public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
     {
     	
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-}
+    }}

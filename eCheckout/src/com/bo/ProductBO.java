@@ -118,8 +118,8 @@ public class ProductBO{
 	public String toString() {
 		return "ProductBO [productId=" + productId + ", productName=" + productName + ", material=" + material
 				+ ", collection=" + collection + ", length=" + length + ", width=" + width + ", colour=" + colour
-				+ ", description=" + description + ", image=" + image + ", price=" + price + "]";
+				+ ", description=" + description + ",price=" + price + "]";
 	}
-
+// image=" + image + ", 
 	
 }
