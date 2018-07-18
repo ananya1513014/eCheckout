@@ -24,9 +24,9 @@ public class CustomerServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
     {
     
-	    	InputStreamReader reader = new InputStreamReader(request.getInputStream());
-			BufferedReader br = new BufferedReader(reader);
-			String jsonString = br.readLine();
+	    InputStreamReader reader = new InputStreamReader(request.getInputStream());
+		BufferedReader br = new BufferedReader(reader);
+		String jsonString = br.readLine();
 		String[] str = jsonString.split("&");
 		String id = str[0].substring(str[0].indexOf("=")+1);		//
 		String name = str[1].substring(str[1].indexOf("=")+1);		//	

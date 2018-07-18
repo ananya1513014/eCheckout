@@ -1,15 +1,16 @@
 package com.bo;
 
-import java.util.Date;
+import java.sql.Date;
 
-public class OrderBO extends ProductBO{
+public class OrderBO{
 
 	String orderNo;
 	String customerId;
-	String productid;
+	String productId;
 	int quantity;
 	Date date;
 	int orderStatus;
+	double price;
 	public String getOrderNo() {
 		return orderNo;
 	}
@@ -22,11 +23,11 @@ public class OrderBO extends ProductBO{
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
-	public String getProductid() {
-		return productid;
+	public String getProductId() {
+		return productId;
 	}
-	public void setProductid(String productid) {
-		this.productid = productid;
+	public void setProductId(String productId) {
+		this.productId = productId;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -46,21 +47,16 @@ public class OrderBO extends ProductBO{
 	public void setOrderStatus(int orderStatus) {
 		this.orderStatus = orderStatus;
 	}
-	public OrderBO(String productId, String productName, String material, String collection, String length,
-			String width, String colour, String description, double price, String orderNo, String customerId,
-			String productid2, int quantity, Date date, int orderStatus) {
-		super(productId, productName, material, collection, length, width, colour, description, price);
-		this.orderNo = orderNo;
-		this.customerId = customerId;
-		productid = productid2;
-		this.quantity = quantity;
-		this.date = date;
-		this.orderStatus = orderStatus;
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = super.hashCode();
+		int result = 1;
 		result = prime * result + ((orderNo == null) ? 0 : orderNo.hashCode());
 		return result;
 	}
@@ -68,7 +64,7 @@ public class OrderBO extends ProductBO{
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!super.equals(obj))
+		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
@@ -80,11 +76,25 @@ public class OrderBO extends ProductBO{
 			return false;
 		return true;
 	}
+	public OrderBO(String orderNo, String customerId, String productId, int quantity, Date date, int orderStatus,
+			double price) {
+		super();
+		this.orderNo = orderNo;
+		this.customerId = customerId;
+		this.productId = productId;
+		this.quantity = quantity;
+		this.date = date;
+		this.orderStatus = orderStatus;
+		this.price = price;
+	}
 	@Override
 	public String toString() {
-		return "OrderBO [orderNo=" + orderNo + ", customerId=" + customerId + ", productid=" + productid + ", quantity="
-				+ quantity + ", date=" + date + ", orderStatus=" + orderStatus + "]";
-	}	
-
+		return "OrderBO [orderNo=" + orderNo + ", customerId=" + customerId + ", productId=" + productId + ", quantity="
+				+ quantity + ", date=" + date + ", orderStatus=" + orderStatus + ", price=" + price + "]";
+	}
+	public OrderBO() {
+		super();
+	}
+	
 
 }
