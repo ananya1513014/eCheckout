@@ -8,10 +8,10 @@ public class CustomerBO {
 	private String eMail;
 	private String address;
 	private String password;
+	@Override
 	public String toString() {
-		return "CustomerBO [custId=" + custId + ", custName=" + custName
-				+ ", mobile=" + mobile + ", eMail=" + eMail + ", address="
-				+ address + "]";
+		return "CustomerBO [custId=" + custId + ", custName=" + custName + ", mobile=" + mobile + ", eMail=" + eMail
+				+ ", address=" + address + ", password=" + password + "]";
 	}
 	public int hashCode() {
 		final int prime = 31;
